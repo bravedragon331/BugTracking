@@ -1,0 +1,521 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+    <title>S4 - SaaS Security Scanner</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/images/logo/favicon.ico">
+
+    <!-- plugins css -->
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/pace-theme-minimal.css">
+    <link rel="stylesheet" href="assets/css/perfect-scrollbar.min.css">
+
+    <!-- page plugins css -->
+    <link rel="stylesheet" href="assets/css/jquery-jvectormap-1.2.2.css">
+    <link rel="stylesheet" href="assets/css/nv.d3.min.css">
+
+    <!-- core css -->
+    <link href="assets/css/ei-icon.css" rel="stylesheet">
+    <link href="assets/css/themify-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="assets/css/animate.min.css" rel="stylesheet">
+    <link href="assets/css/app.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/sweetalert.css" />
+    <link rel="stylesheet" href="assets/css/mystyle.css" />
+
+    <!-- Megaable -->
+    <link rel="stylesheet" type="text/css" href="assets/theme/css/style.css">
+    <link rel="stylesheet" href="assets/custom/custom.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <!-- Custom CSS -->
+
+    <style type="text/css">
+        .jqstooltip {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            visibility: hidden;
+            background: rgb(0, 0, 0) transparent;
+            background-color: rgba(0, 0, 0, 0.6);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+            -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+            color: white;
+            font: 10px arial, san serif;
+            text-align: left;
+            white-space: nowrap;
+            padding: 5px;
+            border: 1px solid white;
+            z-index: 10000;
+        }
+
+        .jqsfield {
+            color: white;
+            font: 10px arial, san serif;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body class="  pace-done">
+    <div class="pace  pace-inactive">
+        <div class="pace-progress" data-progress-text="100%" data-progress="99" style="transform: translate3d(100%, 0px, 0px);">
+            <div class="pace-progress-inner"></div>
+        </div>
+        <div class="pace-activity"></div>
+    </div>
+    <div class="app">
+        <div class="layout">
+            <!-- Side Nav START -->
+            <div class="side-nav">
+                <div class="side-nav-inner">
+                    <div class="side-nav-logo">
+                        <a href="index.html">
+                            <div class="logo logo-dark" style="background-image: url('/assets/images/logo/favicon.ico')"></div>
+                            <div class="logo logo-white" style="background-image: url('/assets/images/logo/favicon.ico')"></div>
+                        </a>
+                        <div class="mobile-toggle side-nav-toggle">
+                            <a href="">
+                                <i class="ti-arrow-circle-left"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <ul class="side-nav-menu scrollable ps-container ps-theme-default ps-active-y" data-ps-id="2d17532c-f78c-52da-2f79-53359355127f">
+                        <li class="nav-item active">
+                            <a class="mrg-top-30" href="index">
+                                <span class="icon-holder">
+                                    <i class="ti-home"></i>
+                                </span>
+                                <span class="title">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown open">
+                            <a class="dropdown-toggle" href="/index">
+                                <span class="icon-holder">
+                                    <i class="ti-cloud"></i>
+                                </span>
+                                <span class="title">Salesforce</span>
+                                <span class="arrow">
+                                    <i class="ti-angle-right"></i>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu" style="display: block;">
+                                <li>
+
+                                </li>
+                            </ul>
+                        </li>
+
+                        <div class="ps-scrollbar-y-rail" style="top: 0px;right: 0px;height: 234px;/* background-color: #14aff9; */">
+                            <div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 87px;"></div>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+            <!-- Side Nav END -->
+
+            <!-- Page Container START -->
+            <div class="page-container">
+                <!-- Header START -->
+                <div class="header navbar">
+                    <div class="header-container">
+                        <ul class="nav-left" style="margin:20px;">
+                            <li>
+                                <a class="side-nav-toggle" href="javascript:void(0);">
+                                    <i class="ti-view-grid"></i>
+                                </a>
+                            </li>
+                            <li class="search-box">
+                                <a class="search-toggle no-pdd-right" href="javascript:void(0);">
+                                    <i class="search-icon ti-search pdd-right-10"></i>
+                                    <i class="search-icon-close ti-close pdd-right-10"></i>
+                                </a>
+                            </li>
+                            <li class="search-input" style="margin-top: -22;">
+                                <input class="form-control" type="text" placeholder="Search...">
+                                <div class="advanced-search">
+
+                                    <div class="search-footer">
+                                        <span>You are Searching for '<b class="text-dark"><span class="serach-text-bind"></span></b>'</span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul class="nav-right">
+                            <li class="user-profile dropdown">
+                                <a href="" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+
+                                    <div class="user-info">
+                                        <span id="spanUsername" class="name pdd-right-5"></span>
+                                        <i class="ti-angle-down font-size-10"></i>
+                                    </div>
+                                </a>
+                                <ul class="dropdown-menu">
+
+
+                                    <li role="separator" class="divider"></li>
+                                    <li>
+                                        <a onclick="javascript:deletejwtToken();">
+                                            <i class="ti-power-off pdd-right-10"></i>
+                                            <span>Logout</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+
+                        </ul>
+                    </div>
+                </div>
+                <!-- Header END -->
+
+                <!-- Side Panel START -->
+                <!-- Side Panel END -->
+
+                <!-- theme configurator START -->
+
+                <!-- theme configurator END -->
+
+                <!--- Visualize Details modal -->
+
+                <button id="VisualizeScan" data-toggle="modal" data-target="#visualize-fs" class="btn btn-sm btn-primary"
+                    style="float:right; display:none;">+ Scans</button>
+
+                <div class="modal fade modal-fs" id="visualize-fs" aria-hidden="true" style="display: none;">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-body height-100 scrollClass">
+
+                                <div class="row" id="total">
+
+                                </div>
+
+                                <a class="modal-close" href="" data-dismiss="modal">
+                                    <i id="close-scan-modal" class="ti-close"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--- End Visualize Details -->
+
+                <!-- Theme Modal START -->
+                <div class="modal fade modal-fs" id="modal-fs" aria-hidden="true" style="display: none;">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-body height-100">
+                                <div class="vertical-align text-center">
+                                    <div class="table-cell">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-md">
+                                                    <h4 class="card-title">Salesforce Environment Info</h4>
+                                                    <div class="form-group row">
+                                                        <label for="form-1-1" class="col-md-2 control-label">Is Test</label>
+                                                        <div class="col-md-1">
+                                                            <div class="row">
+                                                                <div class="col-md-5">
+
+                                                                    <div class="toggle-checkbox checkbox-inline">
+                                                                        <input type="checkbox" name="toggle2" id="toggle2"
+                                                                            checked="">
+                                                                        <label for="toggle2"></label>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label for="form-1-1" class="col-md-2 control-label">Org. Name</label>
+                                                        <div class="col-md-10">
+                                                            <input type="text" class="form-control" id="sfdcname"
+                                                                placeholder="Org. Name">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label for="form-1-1" class="col-md-2 control-label">Username</label>
+                                                        <div class="col-md-10">
+                                                            <input type="text" class="form-control" id="sfdcusername"
+                                                                placeholder="SFDC Username">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label for="form-1-2" class="col-md-2 control-label">Password</label>
+                                                        <div class="col-md-10">
+                                                            <input type="Password" class="form-control" id="sfdcpassword"
+                                                                placeholder="SFDC Password">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label for="form-1-2" class="col-md-2 control-label">Security
+                                                            Token</label>
+                                                        <div class="col-md-10">
+                                                            <input type="Password" class="form-control" id="sfdcsecuritytoken"
+                                                                placeholder="SFDC Security Token">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label for="form-1-2" class="col-md-2 control-label"></label>
+                                                        <div class="col-md-4">
+                                                            <button class="btn btn-info btn-block text-bold text-uppercase"
+                                                                onclick="saveSFDCInfo();">Save</button>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a class="modal-close" href="" data-dismiss="modal">
+                                    <i id="closemodal" class="ti-close"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Theme Modal END -->
+
+                <!-- Content Wrapper START -->
+                <div class="main-content">
+                    <div class="container-fluid">
+
+                        <div class="row" id="scansBreadCrumb" style="display:none">
+                            <ol class="col-12 breadcrumb">
+                                <li class="breadcrumb-item"><a href="#" onclick="showOrgs()">Orgs</a></li>
+                                <li class="breadcrumb-item active">Scans</li>
+                            </ol>
+                        </div>
+
+                        <div class="row" id="findingsBreadCrumb" style="display:none">
+                            <ol class="col-12 breadcrumb">
+                                <li class="breadcrumb-item"><a href="#" onclick="showOrgs()">Orgs</a></li>
+                                <li class="breadcrumb-item"><a href="#" onclick="showScans()"></a>Scans</li>
+                                <li class="breadcrumb-item active">Findings</li>
+                            </ol>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 m-card-wrapper">
+                                <div class="card main-card">
+                                    <div class="row row-content">
+                                        <div class="col-12">
+                                            <h1 class="finding-title inline-block">Soql injection at line 3 in Apex.cls</h1>
+                                            <a class="pull-right v-1 mt-1" href="#">Visualization <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                                            <a class="pull-right v-2 mt-1" href="#">Hide <i class="fa fa-angle-double-left" aria-hidden="true"></i></a>
+                                        </div>
+                                        <div class="col-12">
+                                            <hr>
+                                            <div class="row pb-2 pt-2">
+                                                <div class="col-6 col-lg-2 col-md-4">
+                                                    <label for=""><b>Issue Type</b></label>
+                                                    <select name="" id="" class="form-control">
+                                                        <option value="">New</option>
+                                                        <option value="">Duplicated</option>
+                                                        <option value="">Resolved</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-6 col-lg-2 col-md-4">
+                                                    <label for=""><b>Assign To</b></label>
+                                                    <select name="" id="" class="form-control">
+                                                        <option value="">Bader</option>
+                                                        <option value="">Sunny</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-6 col-lg-2 col-md-4">
+                                                    <label for=""><b>Severity</b></label>
+                                                    <select name="" id="" class="form-control">
+                                                        <option value="">Low</option>
+                                                        <option value="">Hard</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-6 col-lg-2 col-md-4">
+                                                    <label for=""><b>Update Date</b></label>
+                                                    <input class="form-control" style="height: 38px;" value="2018-07-11" readonly>
+                                                </div>
+                                                <div class="col-6 col-lg-2 col-md-4">
+                                                    <label for=""><b>File</b></label>
+                                                    <input class="form-control" style="height: 38px;" value="class/securityTest.cls" readonly>
+                                                </div>
+                                                <div class="col-6 col-lg-2 col-md-4">
+                                                    <label for=""><b>Location</b></label>
+                                                    <input class="form-control" style="height: 38px;" value="line 32 col7" readonly>
+                                                </div>                                                
+                                            </div>
+                                            <!-- <a href="#comments" class="comment-wrapper pull-right">
+                                                <i class="fa fa-commenting" aria-hidden="true"></i>
+                                                <span class="comment-count">2</span>
+                                            </a> -->
+                                            
+                                            <hr>
+                                        </div>                                                
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-12 pt-1">
+                                            <b>Remediation</b>
+                                        </div>
+                                        <div class="col-12" id="remediationBox">
+                                            {'nothing','We recommend the following to prevent or mitigate the effects of SOQL injection:
+
+
+                                            Do not use dynamic SOQL queries with Database.query() function.
+                                            Use prepared statements like [Select Id from Account where id = :accountid];
+                                            If you must use dynamic SOQL, use the escapeSingleQuotes method to sanitize user-supplied input.
+                                            
+                                            +Additional Resources:
+                                            https://developer.salesforce.com/docs/atlas.en-us.pages.meta/pages/pages_security_tips_soql_injection.htm
+                                            ',
+                                            'We recommend the following to prevent against authorization bypass:
+                                            
+                                            
+                                            Implement access control checks such as isAccessible() prior to Select, isCreateable() prior to insert, isUpdateable() prior to update, isDeleteable() prior to delete as shown below:
+                                            if(Schema.sObjectType.Case.isCreateable())
+                                            {
+                                            insert SecurityScanCase;
+                                            }
+                                            
+                                            +Additional Resources:
+                                            https://developer.salesforce.com/docs/atlas.en-us.pages
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-12 pt-1">
+                                            <b>Code Snippet</b>
+                                        </div>
+                                        <select id="mode" class="form-control" style="margin: 0px 15px -35px 15px">
+                                            <option>php</option>
+                                            <option>javascript</option>
+                                            <option>json</option>
+                                            <option>xml</option>
+                                        </select>
+                                    </div>
+                                    <div id="editor"></div>
+                                </div>
+                                <div class="card main-card">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <h2 class="comment-title">Discussions</h2>
+                                        </div>
+                                        <div class="col-md-12 mb-3 pl-4">
+                                            <div style="position:absolute;">
+                                                <img src="assets/images/avatars/user.png" style="width: 45px;" alt="">
+                                            </div>
+                                            <div style="margin-left: 50px;">
+                                                <b>Bader Alshehri</b><br>
+                                                This is first Discussion<br>
+                                                This content comes from <b>wysiwyg-editor</b>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 mb-3 pl-4">
+                                            <div style="position:absolute;">
+                                                <img src="assets/images/avatars/user.png" style="width: 45px;" alt="">
+                                            </div>
+                                            <div style="margin-left: 50px;">
+                                                <b>Bader Alshehri</b><br>
+                                                This is first Discussion<br>
+                                                This content comes from <b>wysiwyg-editor</b>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 pl-4">
+                                            <textarea class="form-control" id="discussion" name="discussion"
+                                                rows="12"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-5 v-card-wrapper">
+                                <div class="card right-card" style="height: 400px;">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <h5 class="remediation-title mb-3">Visualization</h5>
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>                            
+                        </div>
+                    </div>
+                </div>
+                <!-- Content Wrapper END -->               
+
+            </div>
+            <!-- Page Container END -->
+        </div>
+    </div>
+
+    <script src="assets/js/vendor.js"></script>
+
+    <!-- page plugins js -->
+    <script src="assets/js/jquery-jvectormap-1.2.2.min.js"></script>
+    <script src="assets/js/jquery-jvectormap-us-aea.js"></script>
+    <script src="assets/js/d3.min.js"></script>
+    <script src="assets/js/nv.d3.min.js"></script>
+    <script src="assets/js/index.js"></script>
+    <script src="assets/js/Chart.min.js"></script>
+    <script src="assets/js/config.js"></script>
+    <script src="assets/js/app.min.js"></script>
+    <script src="assets/js/sweet-alert.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="text/javascript" src="../files/assets/pages/ace-editor/build/aui/aui.js"></script>
+    <!-- 
+    <script src="assets/js/retrieve.js"></script>
+    <script src="assets/js/s4index.js"></script>
+    -->
+
+
+    <!-- Custom js -->
+    <script type="text/javascript" src="assets/theme/plugin/ace-editor/ace-editor-custom.js"></script>
+    <!-- tinymce js -->
+    <script src="assets/theme/plugin/wysiwyg-editor/js/tinymce.min.js"></script>
+    <!-- Custom js -->
+    <!-- <script src="assets/theme/js/tinymce.min.js"></script> -->
+    <script src="assets/theme/plugin/wysiwyg-editor/wysiwyg-editor.js"></script>
+
+
+    <script type="text/javascript">
+        jQuery(function ($) {
+            $('.panel-heading span.clickable').on("click", function (e) {
+                if ($(this).hasClass('panel-collapsed')) {
+                    // expand the panel
+                    $(this).parents('.panel').find('.panel-body').slideDown();
+                    $(this).removeClass('panel-collapsed');
+                    $(this).find('i').removeClass('glyphicon-chevron-down').addClass(
+                        'glyphicon-chevron-up');
+                } else {
+                    // collapse the panel
+                    $(this).parents('.panel').find('.panel-body').slideUp();
+                    $(this).addClass('panel-collapsed');
+                    $(this).find('i').removeClass('glyphicon-chevron-up').addClass(
+                        'glyphicon-chevron-down');
+                }
+            });
+        });
+
+        (function() {
+            $('.v-card-wrapper').hide();
+            $('.v-2').hide();
+        })()
+        $('.v-1 ').on('click', function() {
+            $('.m-card-wrapper').addClass('col-lg-7');
+            $('.v-card-wrapper').show();
+            $(this).hide();
+            $('.v-2').show();
+        })
+
+        $('.v-2').on('click', function() {
+            $('.m-card-wrapper').removeClass('col-lg-7');
+            $('.v-card-wrapper').hide();
+            $('.v-1').show();
+            $(this).hide();
+        })
+    </script>
+
+    <!-- page js -->
+
+
+</body>
+
+</html>
