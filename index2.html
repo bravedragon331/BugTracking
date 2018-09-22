@@ -386,14 +386,18 @@
                                         <div class="col-12 pt-1">
                                             <b>Code Snippet</b>
                                         </div>
-                                        <select id="mode" class="form-control" style="margin: 0px 15px -35px 15px">
-                                            <option>php</option>
-                                            <option>javascript</option>
-                                            <option>json</option>
-                                            <option>xml</option>
+                                        <select id="mode" class="form-control" data-live-search="true" style="margin: 0px 15px -35px 15px" name="Language" id="mode" onchange="changeMode()">
+                                            <option value="javascript" id="javascript" selected>javascript</option>
+                                            <option value="php" id="php">php</option>
+                                            <option value="c" id="c">C</option>
+                                            <option value="c++" id="c++">C++</option>
+                                            <option value="python2" id="python2">Python2</option>
+                                            <option value="python3" id="python3">Python3</option>
+                                            <option value="java" id="java">Java</option>
                                         </select>
                                     </div>
-                                    <div id="editor"></div>
+                                    <div id="editor">
+                                    </div>
                                 </div>
                                 <div class="card main-card">
                                     <div class="row">
@@ -423,6 +427,9 @@
                                         <div class="col-md-12 pl-4">
                                             <textarea class="form-control" id="discussion" name="discussion"
                                                 rows="12"></textarea>
+                                        </div>
+                                        <div class="col-12 mt-2">
+                                            <button class="btn btn-default pull-right m-0">Summit</button>
                                         </div>
                                     </div>
                                 </div>
@@ -465,8 +472,10 @@
     -->
 
 
-    <!-- Custom js --><!-- ace editor js -->
-    <script type="text/javascript" src="assets/theme/plugin/ace-editor/build/aui/aui.js"></script>
+    <!-- Custom js -->
+    <!-- ace editor js -->
+    <script src="assets/theme/plugin/ace-builds/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+    <!-- <script type="text/javascript" src="assets/theme/plugin/ace-editor/build/aui/aui.js"></script> -->
     <!-- tinymce js -->
     <script src="assets/theme/plugin/wysiwyg-editor/js/tinymce.min.js"></script>
     <!-- Custom js -->
@@ -511,49 +520,54 @@
             $(this).hide();
         })
 
-
-        "use strict";
-        AUI().ready('aui-ace-editor', function(A) {
-            var editor = new A.AceEditor({
-                boundingBox: '#editor',
-
-                // highlightActiveLine: false,
-                readOnly: true,
-                // tabSize: 8,
-                // useSoftTabs: true,
-                // useWrapMode: true,
-                // showPrintMargin: false,
-                mode: 'php',
-                value: '<div></div>'
-            }).render();
-
-            // editor.getEditor().setTheme('ace/theme/cobalt');
-
-            //editor.set('mode', 'javascript');
-            // editor.set('mode', 'json');
-            // editor.set('mode', 'xml');
-
-            var mode = A.one('#mode');
-            if (mode) {
-
-                var currentMode = 'javascript';
-
-
-
-
-
-                mode.on('change', function(event) {
-                    currentMode = this.val();
-
-                    editor.set('mode', currentMode);
-
-
-                });
-            }
-
-            // editor.set('value', 'Change the original content');
+        var editor = ace.edit("editor", {
+            autoScrollEditorIntoView: true,
+            maxLines: 30,
+            minLines: 2
         });
-
+        editor.setTheme("ace/theme/sublime");
+        editor.session.setMode("ace/mode/javascript");
+        let str = `
+        var EditSession = require("ace/edit_session").EditSession
+        var js = new EditSession("some js code")
+        var css = new EditSession(["some", "css", "code here"])
+        // and then to load document into editor, just call
+        editor.setSession(js)
+        `;
+        editor.setValue(str);
+        
+        function changeMode() {
+            var x = document.getElementById("mode");
+            var modeValue = x.options[x.selectedIndex].value;
+            if (modeValue == "javascript") {
+                editor.session.setMode("ace/mode/javascript");
+                document.getElementById('langExt').innerHTML = "javascript";
+            }
+            if (modeValue == "php") {
+                editor.session.setMode("ace/mode/php");
+                document.getElementById('langExt').innerHTML = "php";
+            }
+            if (modeValue == "c") {
+                editor.session.setMode("ace/mode/c_cpp");
+                document.getElementById('langExt').innerHTML = "c";
+            }
+            if (modeValue == "c++") {
+                editor.session.setMode("ace/mode/c_cpp");
+                document.getElementById('langExt').innerHTML = "cpp";
+            }
+            if (modeValue == "python2") {
+                editor.session.setMode("ace/mode/python");
+                document.getElementById('langExt').innerHTML = "py";
+            }
+            if(modeValue == "python3") {
+                editor.session.setMode("ace/mode/python");
+                document.getElementById('langExt').innerHTML = "py";
+            }
+            if (modeValue == "java") {
+                editor.session.setMode("ace/mode/java");
+                document.getElementById('langExt').innerHTML = "java";
+            }
+        }
     </script>
 
     <!-- page js -->
