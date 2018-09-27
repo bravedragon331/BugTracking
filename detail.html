@@ -305,144 +305,145 @@
                                     <div class="row row-content">
                                         <div class="col-12">
                                             <h1 class="finding-title inline-block">Soql injection at line 3 in Apex.cls</h1>
-                                            <a class="pull-right v-1 mt-1" href="#">Visualization <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
-                                            <a class="pull-right v-2 mt-1" href="#">Hide <i class="fa fa-angle-double-left" aria-hidden="true"></i></a>
-                                        </div>
-                                        <div class="col-12">
-                                            <hr>
-                                            <div class="row pb-2 pt-2">
-                                                <div class="col-6 col-lg-2 col-md-4">
-                                                    <label for=""><b>Issue Type</b></label>
-                                                    <select name="" id="" class="form-control">
-                                                        <option value="">New</option>
-                                                        <option value="">Duplicated</option>
-                                                        <option value="">Resolved</option>
-                                                    </select>
-                                                </div>
-                                                <div class="col-6 col-lg-2 col-md-4">
-                                                    <label for=""><b>Assign To</b></label>
-                                                    <select name="" id="" class="form-control">
-                                                        <option value="">Bader</option>
-                                                        <option value="">Sunny</option>
-                                                    </select>
-                                                </div>
-                                                <div class="col-6 col-lg-2 col-md-4">
-                                                    <label for=""><b>Severity</b></label>
-                                                    <select name="" id="" class="form-control">
-                                                        <option value="">Low</option>
-                                                        <option value="">Hard</option>
-                                                    </select>
-                                                </div>
-                                                <div class="col-6 col-lg-2 col-md-4">
-                                                    <label for=""><b>Update Date</b></label>
-                                                    <input class="form-control" style="height: 38px;" value="2018-07-11" readonly>
-                                                </div>
-                                                <div class="col-6 col-lg-2 col-md-4">
-                                                    <label for=""><b>File</b></label>
-                                                    <input class="form-control" style="height: 38px;" value="class/securityTest.cls" readonly>
-                                                </div>
-                                                <div class="col-6 col-lg-2 col-md-4">
-                                                    <label for=""><b>Location</b></label>
-                                                    <input class="form-control" style="height: 38px;" value="line 32 col7" readonly>
-                                                </div>                                                
+                                            <div class="dropdown-inverse dropdown open pull-right">
+                                                <button data-backdrop="" data-toggle="modal" data-target="#myModal2" class="btn btn-dropdown dropdown-toggle btn-columns waves-effect waves-light " type="button" id="dropdown-3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                                    <i class="fa fa-reply" aria-hidden="true"></i>
+                                                    Back to List
+                                                </button>
                                             </div>
-                                            <!-- <a href="#comments" class="comment-wrapper pull-right">
-                                                <i class="fa fa-commenting" aria-hidden="true"></i>
-                                                <span class="comment-count">2</span>
-                                            </a> -->
-                                            
-                                            <hr>
-                                        </div>                                                
-                                    </div>
-                                    <div class="form-group row">
-                                        <div class="col-12 pt-1">
-                                            <b>Remediation</b>
                                         </div>
-                                        <div class="col-12" id="remediationBox">
-                                            {'nothing','We recommend the following to prevent or mitigate the effects of SOQL injection:
-
-
-                                            Do not use dynamic SOQL queries with Database.query() function.
-                                            Use prepared statements like [Select Id from Account where id = :accountid];
-                                            If you must use dynamic SOQL, use the escapeSingleQuotes method to sanitize user-supplied input.
-                                            
-                                            +Additional Resources:
-                                            https://developer.salesforce.com/docs/atlas.en-us.pages.meta/pages/pages_security_tips_soql_injection.htm
-                                            ',
-                                            'We recommend the following to prevent against authorization bypass:
-                                            
-                                            
-                                            Implement access control checks such as isAccessible() prior to Select, isCreateable() prior to insert, isUpdateable() prior to update, isDeleteable() prior to delete as shown below:
-                                            if(Schema.sObjectType.Case.isCreateable())
-                                            {
-                                            insert SecurityScanCase;
-                                            }
-                                            
-                                            +Additional Resources:
-                                            https://developer.salesforce.com/docs/atlas.en-us.pages
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <div class="col-12 pt-1">
-                                            <b>Code Snippet</b>
-                                        </div>
-                                        <select id="mode" class="form-control" data-live-search="true" style="margin: 0px 15px -35px 15px" name="Language" id="mode" onchange="changeMode()">
-                                            <option value="javascript" id="javascript" selected>javascript</option>
-                                            <option value="php" id="php">php</option>
-                                            <option value="c" id="c">C</option>
-                                            <option value="c++" id="c++">C++</option>
-                                            <option value="python2" id="python2">Python2</option>
-                                            <option value="python3" id="python3">Python3</option>
-                                            <option value="java" id="java">Java</option>
-                                        </select>
-                                    </div>
-                                    <div id="editor">
-                                    </div>
-                                </div>
-                                <div class="card main-card">
-                                    <div class="row">
                                         <div class="col-12">
-                                            <h2 class="comment-title">Discussions</h2>
+                                                <a href="#comments" class="comment-wrapper">
+                                                    <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                                                    <span class="comment-count">2 comments</span>
+                                                </a>
+                                                <button class="btn waves-effect waves-light btn-primary btn-outline-primary pull-right" style="padding: 3px 7px; font-size:12px;">
+                                                    <i class="fa fa-floppy-o" style="font-size:14px;"></i>Save
+                                                </button>
                                         </div>
-                                        <div class="col-md-12 mb-3 pl-4">
+                                        <div class="col-12 detail-option-wrapper">
+                                            <div class="row" style="margin-left: 5px;">
+                                                <div class="worker-time">
+                                                    <label for="" class="worker-label">State</label>
+                                                    <div class="dropdown-inverse dropdown open">
+                                                        <button class="btn btn-dropdown btn-dropdown-2 dropdown-toggle waves-effect waves-light " type="button" id="dropdown-3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                                            <b>New</b>
+                                                            <!-- <i class="fa fa-angle-down pull-right mt-3p" aria-hidden="true"></i> -->
+                                                        </button>
+                                                        <div class="dropdown-menu show-menu" aria-labelledby="dropdown-3" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+                                                            <a class="dropdown-item waves-light waves-effect" href="#"> New  </a>
+                                                            <a class="dropdown-item waves-light waves-effect" href="#"> Duplicated </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="worker-time">
+                                                    <label for="" class="worker-label">Severity</label>
+                                                    <div class="dropdown-inverse dropdown open">
+                                                        <button class="btn btn-dropdown btn-dropdown-2 dropdown-toggle waves-effect waves-light " type="button" id="dropdown-3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                                            <b>Urgent</b>
+                                                            <!-- <i class="fa fa-angle-down pull-right mt-3p" aria-hidden="true"></i> -->
+                                                        </button>
+                                                        <div class="dropdown-menu show-menu" aria-labelledby="dropdown-3" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+                                                            <a class="dropdown-item waves-light waves-effect" href="#"> Urgent  </a>
+                                                            <a class="dropdown-item waves-light waves-effect" href="#"> Normal </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="worker-time">
+                                                    <label for="" class="worker-label">Type</label>
+                                                    <div class="dropdown-inverse dropdown open">
+                                                        <button class="btn btn-dropdown btn-dropdown-2 dropdown-toggle waves-effect waves-light " type="button" id="dropdown-3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                                            <b>Javascript</b>
+                                                            <!-- <i class="fa fa-angle-down pull-right mt-3p" aria-hidden="true"></i> -->
+                                                        </button>
+                                                        <div class="dropdown-menu show-menu" aria-labelledby="dropdown-3" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+                                                            <a class="dropdown-item waves-light waves-effect" href="#"> Javascript  </a>
+                                                            <a class="dropdown-item waves-light waves-effect" href="#"> Php </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row" style="margin-left: 5px;">
+                                                <div class="worker-time">
+                                                    <label for="" class="worker-label">Created</label>
+                                                    <p class="inline-block pl-8p">
+                                                        <b>2018-09-26</b>
+                                                    </p>
+                                                </div>
+                                                <div class="worker-time">
+                                                    <label for="" class="worker-label">Updated</label>
+                                                    <p class="inline-block pl-8p">
+                                                        <b>2018-09-26</b>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>                                             
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-12 pt-1">
+                                            <h5><b>Remediation</b></h5>
+                                        </div>
+                                        <div class="col-12 ml-3" id="remediationBox">
+                                            <div>Hi, This is my short intro text. Lorem ipsum is a dummy content sit dollar.</div>
+                                            <div>Hi, This is my short intro text. Lorem ipsum is a dummy content sit dollar.</div>
+                                            <div>Hi, This is my short intro text. Lorem ipsum is a dummy content sit dollar.</div>
+                                            <div>Hi, This is my short intro text. Lorem ipsum is a dummy content sit dollar.</div>
+                                            <div>Hi, This is my short intro text. Lorem ipsum is a dummy content sit dollar.</div>
+                                            <div>Hi, This is my short intro text. Lorem ipsum is a dummy content sit dollar.</div>
+                                            <div>Hi, This is my short intro text. Lorem ipsum is a dummy content sit dollar.</div>
+                                            <div>Hi, This is my short intro text. Lorem ipsum is a dummy content sit dollar.</div>
+                                            <div>Hi, This is my short intro text. Lorem ipsum is a dummy content sit dollar.</div>
+                                            <div>Hi, This is my short intro text. Lorem ipsum is a dummy content sit dollar.</div>
+
+                                        </div>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-12 pt-1">
+                                            <h5><b>Code Snippet</b></h5>
+                                        </div>
+                                    </div>
+                                    <div id="editor" class="pl-4">
+                                    </div>
+                                    <div class="form-group row mt-3">
+                                        <div class="col-12 pt-1">
+                                            <h5><b>Visualization</b></h5>
+                                        </div>
+                                        <div class="col-12" style="height: 200px;"></div>
+                                    </div>
+                                    <div class="form-group row mt-3">
+                                        <div class="col-12 pt-1">
+                                            <h5><b>Discussion</b></h5>
+                                        </div>
+                                        <div class="col-md-12 mb-1 pl-4 mt-1">                                            
                                             <div style="position:absolute;">
-                                                <img src="assets/images/avatars/user.png" style="width: 45px;" alt="">
+                                                <img src="assets/images/avatars/user.png" style="width: 30px;" alt="">
                                             </div>
-                                            <div style="margin-left: 50px;">
+                                            <div style="margin-left: 50px; border-bottom: solid 1px #dddddd">
                                                 <b>Bader Alshehri</b><br>
                                                 This is first Discussion<br>
                                                 This content comes from <b>wysiwyg-editor</b>
                                             </div>
                                         </div>
-                                        <div class="col-md-12 mb-3 pl-4">
+                                        <div class="col-md-12 mb-1 pl-4">
                                             <div style="position:absolute;">
-                                                <img src="assets/images/avatars/user.png" style="width: 45px;" alt="">
+                                                <img src="assets/images/avatars/user.png" style="width: 30px;" alt="">
                                             </div>
-                                            <div style="margin-left: 50px;">
+                                            <div style="margin-left: 50px; border-bottom: solid 1px #dddddd">
                                                 <b>Bader Alshehri</b><br>
                                                 This is first Discussion<br>
                                                 This content comes from <b>wysiwyg-editor</b>
                                             </div>
                                         </div>
-                                        <div class="col-md-12 pl-4">
-                                            <textarea class="form-control" id="discussion" name="discussion"
-                                                rows="12"></textarea>
+                                        <div class="col-md-12 pl-4 mt-2">
+                                            <textarea class="form-control" id="" name="discussion" placeholder="Add a comment"
+                                                rows="10" style="margin-left: 50px; min-height: 80px; width: calc(100% - 50px);"></textarea>
                                         </div>
                                         <div class="col-12 mt-2">
-                                            <button class="btn btn-default pull-right m-0">Summit</button>
+                                            <button class="btn btn-default pull-right m-0 p-1">Summit</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-12 col-lg-5 v-card-wrapper">
-                                <div class="card right-card" style="height: 400px;">
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <h5 class="remediation-title mb-3">Visualization</h5>
-                                        </div>
-                                    </div>
-                                </div>                                
-                            </div>                            
                         </div>
                     </div>
                 </div>
@@ -479,8 +480,6 @@
     <!-- tinymce js -->
     <script src="assets/theme/plugin/wysiwyg-editor/js/tinymce.min.js"></script>
     <!-- Custom js -->
-    <!-- <script src="assets/theme/js/tinymce.min.js"></script> -->
-    <script src="assets/theme/plugin/wysiwyg-editor/wysiwyg-editor.js"></script>
 
 
     <script type="text/javascript">
@@ -502,23 +501,6 @@
             });
         });
 
-        (function() {
-            $('.v-card-wrapper').hide();
-            $('.v-2').hide();
-        })()
-        $('.v-1 ').on('click', function() {
-            $('.m-card-wrapper').addClass('col-lg-7');
-            $('.v-card-wrapper').show();
-            $(this).hide();
-            $('.v-2').show();
-        })
-
-        $('.v-2').on('click', function() {
-            $('.m-card-wrapper').removeClass('col-lg-7');
-            $('.v-card-wrapper').hide();
-            $('.v-1').show();
-            $(this).hide();
-        })
 
         var editor = ace.edit("editor", {
             autoScrollEditorIntoView: true,
@@ -527,13 +509,12 @@
         });
         editor.setTheme("ace/theme/sublime");
         editor.session.setMode("ace/mode/javascript");
-        let str = `
-        var EditSession = require("ace/edit_session").EditSession
-        var js = new EditSession("some js code")
-        var css = new EditSession(["some", "css", "code here"])
-        // and then to load document into editor, just call
-        editor.setSession(js)
-        `;
+        let str = 
+`var EditSession = require("ace/edit_session").EditSession
+var js = new EditSession("some js code")
+var css = new EditSession(["some", "css", "code here"])
+// and then to load document into editor, just call
+editor.setSession(js)`;
         editor.setValue(str);
         
         function changeMode() {

@@ -1,4 +1,6 @@
-
+.red {
+  color: red;
+}
 body, body * {
   font-family: 'Roboto Condensed';
 }
@@ -15,6 +17,7 @@ b {
 }
 #editor {
   /* height: 300px !important; */
+  margin-top: 5px;
 }
 .main-content {
   background-color: #f6f7fb
@@ -36,7 +39,6 @@ b {
   font-weight: 600;
 }
 .main-card .comment-wrapper {
-  border: 1px solid;
   padding: 3px 5px;
   border-radius: 4px;
   color: lightgrey;
@@ -62,11 +64,11 @@ b {
 */
 
 .search-bar {
-  width: 300px;
-  height: 35px;
+  width: 200px;
+  height: 33px;
   background: white;
-  border: 1px solid gray;
-  border-radius: 20px;
+  border: 1px solid #aaaaaaa6;
+  /* border-radius: 20px; */
 }
 .search-bar .content {
   padding: 0 12px;
@@ -78,6 +80,7 @@ b {
   flex: 1 1 auto;
   margin: 0;
   padding: 0;
+  padding-left: 10px;
   border: none;
   box-shadow: none;
   height: 100%;
@@ -85,8 +88,9 @@ b {
 }
     
 .search-bar i {
-      flex: 0 0 auto;
-      margin-left: 5px;
+  flex: 0 0 auto;
+  margin-left: 0px;
+  color: #aaaaaaa6;
 }
 .list-card {
   padding: 4em
@@ -94,15 +98,48 @@ b {
 .list-card, .main-card * {
   color: black;
 }
-.list-card .v-1, .list-card .v-2 {
-  margin-top: -30px;
-}
 #list-table_wrapper .row:first-child {
+  display: none
+}
+#list-table_wrapper .row:last-child {
   display: none
 }
 #list-table tr td, #list-table tr th{
   padding: 0.5rem !important;
   font-size: 14px;
+}
+#list-table tr th {
+  border-left: none;
+  border-right: none;
+}
+#list-table tbody tr td {
+  border: none !important;
+}
+#list-table tbody tr {
+  border: none !important;
+}
+#list-table {
+  border: none !important;
+}
+#list-table thead .sorting_asc::after {
+  display: none;
+}
+#list-table thead .sorting_asc::before {
+  content: "\2193";
+  opacity: 1
+}
+#list-table thead .sorting_desc::before {
+  content: "\2191";
+  opacity: 1
+}
+#list-table thead .sorting_desc::after {
+  display: none;
+}
+#list-table thead .sorting::after {
+  display: none;
+}
+#list-table thead .sorting::before {
+  display: none;
 }
 .bg-red {
   padding: 2px;
@@ -122,4 +159,174 @@ b {
 .dataTables_wrapper .dataTables_paginate .paginate_button {
   padding: inherit;
   margin: inherit;
+}
+
+/* The container */
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  /* background-color: #eee; */
+  border: solid 1px;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  /* background-color: #ccc; */
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 5px;
+  top: 1px;
+  width: 6px;
+  height: 13px;
+  border: solid white;
+  border-width: 0 1px 1px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+
+.select-wrapper {
+  margin-left: 10px;
+}
+
+.btn-dropdown:hover {
+  background: #e2e2e2;
+}
+.setting-bar {
+  border-bottom: solid 1px #dddddd;
+  margin-left: 15px;
+  padding-left: 0px;
+}
+.filter-wrapper {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.filter-wrapper .row {
+  margin: 0px;
+}
+.filter-wrapper form {
+  margin-bottom: 0px;
+}
+
+
+
+/*******************************
+* MODAL AS LEFT/RIGHT SIDEBAR
+* Add "left" or "right" in modal parent div, after class="modal".
+* Get free snippets on bootpen.com
+*******************************/
+.modal.right .modal-dialog {
+  position: fixed;
+  margin: auto;
+  width: 450px;
+  height: 100%;
+  -webkit-transform: translate3d(0%, 0, 0);
+      -ms-transform: translate3d(0%, 0, 0);
+       -o-transform: translate3d(0%, 0, 0);
+          transform: translate3d(0%, 0, 0);
+}
+
+.modal.right .modal-content {
+  height: 100%;
+  overflow-y: auto;
+}
+
+.modal.right .modal-body {
+  padding: 15px 50px 80px;
+}
+
+      
+/*Right*/
+.modal.right.fade .modal-dialog {
+  right: 0px;
+  -webkit-transition: opacity 0.3s linear, right 0.3s ease-out;
+     -moz-transition: opacity 0.3s linear, right 0.3s ease-out;
+       -o-transition: opacity 0.3s linear, right 0.3s ease-out;
+          transition: opacity 0.3s linear, right 0.3s ease-out;
+}
+
+.modal.right.fade.in .modal-dialog {
+  right: 0;
+}
+
+.btn-dropdown {
+  padding-left: 19px;
+  margin-left: -19px;
+  background: transparent;
+  text-transform: initial;
+  font-size:14px;
+}
+
+.worker-time {
+  width: 300px;
+}
+.worker-label {
+  width: 100px;
+}
+.btn-dropdown-2 {
+  width: 180px;
+  padding: 3px 5px;
+  text-align: left;
+  margin-left: 0px;
+}
+.mt-3p {
+  margin-top: 3px;
+}
+.pl-8p {
+  padding-left: 8px;
+  margin-bottom: 0px;
+}
+.show-menu {
+  width: 200px;
+}
+.detail-option-wrapper {
+  background-color: rgba(var(--palette-neutral-2,248, 248, 248),1);
+  border-width: 1px 0;
+  border-style: solid;
+  border-color: rgba(var(--palette-neutral-8,234, 234, 234),1);
+  padding-top: 8px;
 }

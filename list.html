@@ -35,6 +35,9 @@
     
     <link rel="stylesheet" type="text/css" href="assets/theme/css/style.css">
     <link rel="stylesheet" href="assets/custom/custom.css">
+    <!-- Check Box -->
+    <link rel="stylesheet" type="text/css" href="assets/theme/plugin/multi-select/example-styles.css">
+    <!-- <link rel="stylesheet" type="text/css" href="assets/custom/demo-styles.css"> -->
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <!-- Custom CSS -->
 
@@ -312,157 +315,70 @@
                                         <div class="col-12">
                                             <h1 class="finding-title inline-block">Bug List</h1>
                                         </div>
-                                        <div class="col-12">
-                                            <div class="search-bar">
-                                                <div class="content">
-                                                    <input type='search' placeholder='Search' id="search-bar">
-                                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                        <div class="col-12 setting-bar">
+                                            <div class="dropdown-inverse dropdown open">
+                                                <button class="btn btn-dropdown dropdown-toggle waves-effect waves-light " type="button" id="dropdown-3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                                    Assigned to
+                                                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                                </button>
+                                                <div class="dropdown-menu assignto" aria-labelledby="dropdown-3" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
                                                 </div>
                                             </div>
-                                            <a class="pull-right v-1" href="#">Filter <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
-                                            <a class="pull-right v-2" href="#">Hide <i class="fa fa-angle-double-left" aria-hidden="true"></i></a>
+                                            <div class="dropdown-inverse dropdown open">
+                                                <button data-backdrop="" data-toggle="modal" data-target="#myModal2" class="btn btn-dropdown dropdown-toggle btn-columns waves-effect waves-light " type="button" id="dropdown-3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                                    <i class="fa fa-wrench" aria-hidden="true"></i>
+                                                    Column Options                                                    
+                                                </button>
+                                            </div>
+                                            <div class="dropdown-inverse dropdown open pull-right">
+                                                <button class="v-1 btn btn-dropdown dropdown-toggle btn-columns waves-effect waves-light " type="button" id="dropdown-3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                                    <i class="fa fa-filter" aria-hidden="true"></i>
+                                                </button>
+                                            </div>
                                         </div>
                                         <div class="col-12 filter-wrapper">
-                                            <hr>
                                             <div class="row">
-                                                <div class="col-lg-2 col-md-3">
-                                                    <label for=""><b>Issue Type</b></label>
-                                                    <div id="issue-type"></div>
+                                                <div class="search-bar">
+                                                    <div class="content">
+                                                        <i class="fa fa-search" aria-hidden="true"></i>
+                                                        <input type='search' placeholder='Filter by keyword' id="search-bar">
+                                                    </div>
                                                 </div>
-                                                <div class="col-lg-2 col-md-3">
-                                                    <label for=""><b>Severity</b></label>
-                                                    <div id="severity-type"></div>
-                                                </div>
-                                                <div class="col-lg-2 col-md-3">
-                                                    <label for=""><b>Assign To</b></label>
-                                                    <div id="assign-to"></div>
-                                                </div>
-                                                <div class="col-lg-2 col-md-3">
-                                                    <label for=""><b>Status</b></label>
-                                                    <div id="status"></div>
-                                                </div>
+
+                                                <form class="select-wrapper">
+                                                    <select id="issue-type" name="issue-type" multiple>
+                                                        
+                                                    </select>
+                                                </form>
+                                                <form class="select-wrapper">
+                                                    <select id="severity-type" name="severity-type" multiple>
+
+                                                    </select>
+                                                </form>
+                                                <form class="select-wrapper">
+                                                    <select id="state-type" name="Status" multiple>
+                                                    </select>
+                                                </form>
                                             </div>
-                                            <hr>
                                         </div>
-                                        <div class="col-12 mt-2">
+                                        <div class="col-12">
                                             <div class="dt-responsive table-responsive">
                                                 <table id="list-table" class="table table-bordered nowrap">
                                                     <thead>
                                                         <tr>
                                                             <th>No</th>
                                                             <th>Title</th>
-                                                            <th>Issue Type</th>
-                                                            <th class="text-center">Severity</th>
+                                                            <th>Type</th>
+                                                            <th>Severity</th>
                                                             <th>Assign To</th>
                                                             <th>Status</th>
                                                             <th>Date</th>
                                                             <th>Last Update</th>
-                                                            <th class="text-center">Delete</th>
+                                                            <th>Delete</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <tr>
-                                                            <td>1</td>
-                                                            <td><a href="index2.html">Soql injection at line 3 in Apex.cls</a></td>
-                                                            <td>Java Script</td>
-                                                            <td class="text-center">
-                                                                <span class="bg-red">Urgent</span>
-                                                            </td>
-                                                            <td>
-                                                                <span>Bader Al</span>
-                                                            </td>
-                                                            <td>New</td>
-                                                            <td>2018/09/21</td>
-                                                            <td>2018/09/21</td>
-                                                            <td class="text-center">
-                                                                <a href=""><i class="fa fa-trash-o"></i></a>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>2</td>
-                                                            <td><a href="">How to make a bug tracking system</a></td>
-                                                            <td>PHP</td>
-                                                            <td class="text-center">
-                                                                <span class="bg-yellow">Normal</span>
-                                                            </td>
-                                                            <td>
-                                                                Sunny Dail
-                                                            </td>
-                                                            <td>Duplicated</td>
-                                                            <td>2018/09/22</td>
-                                                            <td>2018/09/22</td>
-                                                            <td class="text-center">
-                                                                <a href=""><i class="fa fa-trash-o"></i></a>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>3</td>
-                                                            <td><a href="">Soql injection at line 3 in Apex.cls</a></td>
-                                                            <td>Java Script</td>
-                                                            <td class="text-center">
-                                                                <span class="bg-red">Urgent</span>
-                                                            </td>
-                                                            <td>
-                                                                Bader Al
-                                                            </td>
-                                                            <td>New</td>
-                                                            <td>2018/09/21</td>
-                                                            <td>2018/09/21</td>
-                                                            <td class="text-center">
-                                                                <a href=""><i class="fa fa-trash-o"></i></a>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>4</td>
-                                                            <td><a href="">How to make a bug tracking system</a></td>
-                                                            <td>PHP</td>
-                                                            <td class="text-center">
-                                                                <span class="bg-yellow">Normal</span>
-                                                            </td>
-                                                            <td>
-                                                                Sunny Dail
-                                                            </td>
-                                                            <td>New</td>
-                                                            <td>2018/09/22</td>
-                                                            <td>2018/09/22</td>
-                                                            <td class="text-center">
-                                                                <a href=""><i class="fa fa-trash-o"></i></a>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>5</td>
-                                                            <td><a href="">Soql injection at line 3 in Apex.cls</a></td>
-                                                            <td>Java Script</td>
-                                                            <td class="text-center">
-                                                                <span class="bg-red">Urgent</span>
-                                                            </td>
-                                                            <td>
-                                                                Bader Al
-                                                            </td>
-                                                            <td>Resolved</td>
-                                                            <td>2018/09/21</td>
-                                                            <td>2018/09/21</td>
-                                                            <td class="text-center">
-                                                                <a href=""><i class="fa fa-trash-o"></i></a>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>6</td>
-                                                            <td><a href="">How to make a bug tracking system</a></td>
-                                                            <td>PHP</td>
-                                                            <td class="text-center">
-                                                                <span class="bg-yellow">Normal</span>
-                                                            </td>
-                                                            <td>
-                                                                Sunny Dail
-                                                            </td>
-                                                            <td>Resolved</td>
-                                                            <td>2018/09/22</td>
-                                                            <td>2018/09/22</td>
-                                                            <td class="text-center">
-                                                                <a href=""><i class="fa fa-trash-o"></i></a>
-                                                            </td>
-                                                        </tr>
+                                                        
                                                     </tbody>                                                    
                                                 </table>
                                             </div>
@@ -480,6 +396,71 @@
             <!-- Page Container END -->
         </div>
     </div>
+    <!-- Modal -->
+	<div class="modal right fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" style="font-size: 30px;">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel2"></h4>
+                </div>
+
+                <div class="modal-body">
+                    <h2>Column Options</h2>
+                    <p>Add or remove columns. </p>
+
+                    <label class="multi-select-menuitem container" for="select_id" role="menuitem">
+                        <input type="checkbox" id="select_id" checked>
+                        <span class="checkmark"></span>
+                        ID
+                    </label>
+                    <label class="multi-select-menuitem container" for="select_title" role="menuitem">
+                        <input type="checkbox" id="select_title" checked>
+                        <span class="checkmark"></span>
+                        Title
+                    </label>
+                    <label class="multi-select-menuitem container" for="select_severity" role="menuitem">
+                        <input type="checkbox" id="select_severity" checked>
+                        <span class="checkmark"></span>
+                        Severity
+                    </label>
+                    <label class="multi-select-menuitem container" for="select_assign" role="menuitem">
+                        <input type="checkbox" id="select_assign" checked>
+                        <span class="checkmark"></span>
+                        Assign To
+                    </label>
+                    <label class="multi-select-menuitem container" for="select_state" role="menuitem">
+                        <input type="checkbox" id="select_state" checked>
+                        <span class="checkmark"></span>
+                        Status
+                    </label>
+                    <label class="multi-select-menuitem container" for="select_create_date" role="menuitem">
+                        <input type="checkbox" id="select_create_date" checked>
+                        <span class="checkmark"></span>
+                        Created Date
+                    </label>
+                    <label class="multi-select-menuitem container" for="select_update_date" role="menuitem">
+                        <input type="checkbox" id="select_update_date" checked>
+                        <span class="checkmark"></span>
+                        Update Date
+                    </label>
+                    <label class="multi-select-menuitem container" for="select_delete" role="menuitem">
+                        <input type="checkbox" id="select_delete" checked>
+                        <span class="checkmark"></span>
+                        Delete
+                    </label>
+                    <div style="position: absolute; bottom: 30px; left: 150px;">
+                        <button class="btn btn-primary btn-apply" style="height: 40px;">OK</button>
+                        <button class="btn btn-secondary btn-cancel" style="height: 40px;">Cancel</button>
+                    </div>
+                </div>
+
+            </div><!-- modal-content -->
+        </div><!-- modal-dialog -->
+    </div><!-- modal -->
 
     <script src="assets/js/vendor.js"></script>
 
@@ -498,6 +479,7 @@
     <!-- data-table js -->
     <script src="assets/theme/plugin/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="assets/theme/plugin/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script type="text/javascript" src="assets/theme/plugin/multi-select/jquery.multi-select.js"></script>
     
 
     <script type="text/javascript">
@@ -522,7 +504,7 @@
         (function() {
             $('.v-card-wrapper').hide();
             $('.v-2').hide();
-            $('.filter-wrapper').hide()
+            // $('.filter-wrapper').hide()
         })()
         $('.v-1 ').on('click', function() {
             $(this).hide();
@@ -535,92 +517,222 @@
             $(this).hide();
             $('.filter-wrapper').hide()
         })
-        
-        var severity_list = ['Urgent', 'Normal']
-        var assignto_list = ["Bader Al", "Sunny Dail"]
-        var status_list = ['New', "Duplicated", "Resolved"]
+
+        var tableData, tableData_cpy, type_list = [], assign_list = [], state_list = [], severity_list = [];
         $('#list-table').DataTable({
             searching: true,
             info: false,
-            pageLength: 25,
-            initComplete: function() {
-                var index = 0;
-                this.api().columns().every(function() {
-                    var column = this;
-                    if (index == 0) {
-
-                    } else if (index == 2) {
-                        var select = $('<select class="form-control form-control-sm"><option value=""></option></select>')
-                        .appendTo($('#issue-type'))
-                        .on('change', function() {
-                            var val = $.fn.dataTable.util.escapeRegex(
-                                $(this).val()
-                            );
-
-                            column
-                                .search(val ? '^' + val + '$' : '', true, false)
-                                .draw();
-                        });
-
-                        column.data().unique().sort().each(function(d, j) {
-                            select.append('<option value="' + d + '">' + d + '</option>')
-                        });
-                    } else if (index == 3) {
-                        var select = $('<select class="form-control form-control-sm"><option value=""></option></select>')
-                        .appendTo($('#severity-type'))
-                        .on('change', function() {
-                            var val = $.fn.dataTable.util.escapeRegex(
-                                $(this).val()
-                            );
-
-                            column
-                                .search(val ? '^' + val + '$' : '', true, false)
-                                .draw();
-                        });
-
-                        for (var i = 0; i < severity_list.length; i++) {
-                            select.append('<option value="' + severity_list[i] + '">' + severity_list[i] + '</option>')
-                        }
-                    } else if (index == 4) {
-                        var select = $('<select class="form-control form-control-sm"><option value=""></option></select>')
-                        .appendTo($('#assign-to'))
-                        .on('change', function() {
-                            var val = $.fn.dataTable.util.escapeRegex(
-                                $(this).val()
-                            );
-                            column
-                                .search(val ? '^' + val + '$' : '', true, false)
-                                .draw();
-                        });
-
-                        for (var i = 0; i < assignto_list.length; i++) {
-                            select.append('<option value="' + assignto_list[i] + '">' + assignto_list[i] + '</option>')
-                        }
-                    } else if (index == 5) {
-                        var select = $('<select class="form-control form-control-sm"><option value=""></option></select>')
-                        .appendTo($('#status'))
-                        .on('change', function() {
-                            var val = $.fn.dataTable.util.escapeRegex(
-                                $(this).val()
-                            );
-                            column
-                                .search(val ? '^' + val + '$' : '', true, false)
-                                .draw();
-                        });
-
-                        for (var i = 0; i < status_list.length; i++) {
-                            select.append('<option value="' + status_list[i] + '">' + status_list[i] + '</option>')
-                        }
-                    }
-                    index++;
-                });
-            }
+            destroy: true,
+            pageLength: 100,            
         });
+        var header_list = [
+            { title: "ID", active: true },
+            { title: "Title", active: true },
+            { title: "Type", active: true },
+            { title: "Severity", active: true },
+            { title: "Assign To", active: true },
+            { title: "State", active: true },
+            { title: "Created Date", active: true },
+            { title: "Last Update", active: true },
+            { title: "Delete", active: true }
+        ]
+        function init(tableData) {
+            for (var i = 0; i < tableData.length; i++) {
+                if (!type_list.includes(tableData[i].type)) {
+                    type_list.push(tableData[i].type)
+                }
+                if (!assign_list.includes(tableData[i].assign)) {
+                    assign_list.push(tableData[i].assign)
+                }
+                if (!state_list.includes(tableData[i].state)) {
+                    state_list.push(tableData[i].state)
+                }
+                if (!severity_list.includes(tableData[i].severity)) {
+                    severity_list.push(tableData[i].severity)
+                }
+            }
+            var ht = ''
+            for (var i = 0; i < type_list.length; i++) {
+                ht += `<option value="`+type_list[i]+`">`+type_list[i]+`</option>`
+            }
+            $('#issue-type').html(ht)
+            $('#issue-type').multiSelect({            
+                noneText: 'Types',
+            });
+            $('#issue-type').on('change', function() {
+                var list = $(this).val()
+                if (list == null) {
+                    drawTable(tableData)
+                    return
+                }
+                tableData_cpy = tableData.filter(v => {
+                    return list.includes(v.type)
+                })
+                drawTable(tableData_cpy)
+            })
+
+            ht = ''
+            for (var i = 0; i < assign_list.length; i++) {
+                ht +=  `<a class="dropdown-item waves-light waves-effect" href="#" data-assign="`+assign_list[i]+`">`+assign_list[i]+`</a>`
+            }
+            $('.assignto').html(ht)
+            $('.dropdown-item').on('click', function() {
+                let assign = $(this).data("assign")
+                tableData_cpy = tableData.filter(v => {
+                    return v.assign == assign
+                })
+                drawTable(tableData_cpy)
+            })
+
+            ht = ''
+            for (var i = 0; i < severity_list.length; i++) {
+                ht += `<option value="`+severity_list[i]+`">`+severity_list[i]+`</option>`
+            }
+            $('#severity-type').html(ht)
+            $('#severity-type').multiSelect({            
+                noneText: 'Severity',
+            });
+            $('#severity-type').on('change', function() {
+                var list = $(this).val()
+                if (list == null) {
+                    drawTable(tableData)
+                    return
+                }
+                tableData_cpy = tableData.filter(v => {
+                    return list.includes(v.severity)
+                })
+                drawTable(tableData_cpy)
+            })
+
+            ht = ''
+            for (var i = 0; i < state_list.length; i++) {
+                ht += `<option value="`+state_list[i]+`">`+state_list[i]+`</option>`
+            }
+            $('#state-type').html(ht)
+            $('#state-type').multiSelect({            
+                noneText: 'State',
+            });
+            $('#state-type').on('change', function() {
+                var list = $(this).val()
+                if (list == null) {
+                    drawTable(tableData)
+                    return
+                }
+                tableData_cpy = tableData.filter(v => {
+                    return list.includes(v.state)
+                })
+                drawTable(tableData_cpy)
+            })
+
+        }
+        function drawTable(data) {
+            $('#list-table').DataTable().destroy()
+            $("#list-table thead").html('');
+            $("#list-table tbody").html('');
+
+            var headht = '<tr>';
+            for (let i = 0; i < header_list.length; i++) {
+                if (header_list[i].active) 
+                    headht += '<th>'+header_list[i].title+'</th>'
+            }
+            headht += '</tr>'
+            $('#list-table thead').html(headht)
+            
+            var temp = []
+            for (let i = 0; i < data.length; i++) {
+                var ttt = []
+                if (header_list[0].active) {
+                    ttt.push(data[i].id)
+                }
+                if (header_list[1].active) {
+                    ttt.push('<a href="detail.html">'+data[i].title+'</a>')
+                }
+                if (header_list[2].active) {
+                    ttt.push(data[i].type)
+                }
+                if (header_list[3].active) {
+                    ttt.push('<span class='+(data[i].severity === "Urgent"?"bg-red": "bg-yellow")+'>'+data[i].severity+'</span>')
+                }
+                if (header_list[4].active) {
+                    ttt.push(data[i].assign)
+                }
+                if (header_list[5].active) {
+                    ttt.push('<i class="fa fa-circle '+(data[i].state == "Active"?"red":"")+'"></i>'+data[i].state)
+                }
+                if (header_list[6].active) {
+                    ttt.push(data[i].created)
+                }
+                if (header_list[7].active) {
+                    ttt.push(data[i].updated)
+                }
+                if (header_list[8].active) {
+                    ttt.push('<a href=""><i class="fa fa-trash-o"></i></a>')
+                }
+                temp.push(ttt)                
+            }
+
+            console.log(temp)
+            $('#list-table').DataTable({
+                searching: true,
+                info: false,
+                destroy: true,
+                pageLength: 100,            
+            });            
+
+            $('#list-table').dataTable().fnClearTable();
+            
+            if(temp.length > 0){
+              $('#list-table').dataTable().fnAddData(temp);
+              $('#list-table').dataTable().fnDraw();
+            }
+        }
+        
+        tableData = [
+            {
+                id: 1,
+                title: "Soql injection at line 3 in Apex.cls",
+                type: "Javascript",
+                severity: "Urgent",
+                state: "Active",
+                assign: "Bader Al",
+                created: "2018-09-21",
+                updated: "2018-09-21"
+            },
+            {
+                id: 2,
+                title: "Soql injection at line 3 in Apex.cls",
+                type: "Php",
+                severity: "Normal",
+                assign: "Sunny Drail",
+                state: "Duplicated",
+                created: "2018-09-22",
+                updated: "2018-09-23"
+            }
+        ];
+        init(tableData)
+        drawTable(tableData)
+        
         $('#search-bar').change(function() {
             var v = $(this).val();
             $('#list-table').DataTable().search(v).draw();
         })
-
+        
+        $('.btn-cancel').on('click', function() {
+            $('#myModal2').modal('hide')
+        })
+        $('.btn-apply').on('click', function() {
+            header_list[0].active = $("#select_id").is(':checked')
+            header_list[1].active = $("#select_title").is(':checked')
+            header_list[2].active = $("#select_type").is(':checked')
+            header_list[3].active = $("#select_severity").is(':checked')
+            header_list[4].active = $("#select_assign").is(':checked')
+            header_list[5].active = $("#select_state").is(':checked')
+            header_list[5].active = $("#select_create_update").is(':checked')
+            header_list[5].active = $("#select_last_update").is(':checked')
+            header_list[5].active = $("#select_delete").is(':checked')
+            $('#myModal2').modal('hide')
+            drawTable(tableData)
+        })
     </script>
 
     <!-- page js -->
