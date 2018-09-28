@@ -2,10 +2,10 @@
   color: red;
 }
 body, body * {
-  font-family: 'Roboto Condensed';
+  font-family: 'Roboto', sans-serif;
 }
 b {
-  font-weight: 600;
+  font-weight: 500;
 }
 .breadcrumb-item, .breadcrumb-item a {
   color: black !important;
@@ -30,13 +30,16 @@ b {
 }
 .finding-title {
   font-size: 2.3em;
-  font-weight: 700;
+  font-weight: 400;
+  color: black;
 }
 .main-card hr {
   margin: 10px 0px;
 }
 .main-card b {
-  font-weight: 600;
+  font-family: "Roboto script=all rev=1", "Adobe Blank";
+  font-weight: 400;
+  font-style: normal;
 }
 .main-card .comment-wrapper {
   padding: 3px 5px;
@@ -111,6 +114,9 @@ b {
 #list-table tr th {
   border-left: none;
   border-right: none;
+  font-family: "Roboto script=all rev=1", "Adobe Blank";
+  font-weight: 400;
+  font-style: normal;
 }
 #list-table tbody tr td {
   border: none !important;
