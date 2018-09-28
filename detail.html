@@ -299,6 +299,7 @@
                                 <li class="breadcrumb-item active">Findings</li>
                             </ol>
                         </div>
+
                         <div class="row">
                             <div class="col-12 m-card-wrapper">
                                 <div class="card main-card">
@@ -313,7 +314,7 @@
                                             </div>
                                         </div>
                                         <div class="col-12">
-                                                <a href="#comments" class="comment-wrapper">
+                                                <a href="javascript: void(0);" class="comment-wrapper">
                                                     <i class="fa fa-commenting-o" aria-hidden="true"></i>
                                                     <span class="comment-count">2 comments</span>
                                                 </a>
@@ -327,12 +328,12 @@
                                                     <label for="" class="worker-label">State</label>
                                                     <div class="dropdown-inverse dropdown open">
                                                         <button class="btn btn-dropdown btn-dropdown-2 dropdown-toggle waves-effect waves-light " type="button" id="dropdown-3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                                            <b>New</b>
+                                                            <b id="state-label">New</b>
                                                             <!-- <i class="fa fa-angle-down pull-right mt-3p" aria-hidden="true"></i> -->
                                                         </button>
                                                         <div class="dropdown-menu show-menu" aria-labelledby="dropdown-3" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
-                                                            <a class="dropdown-item waves-light waves-effect" href="#"> New  </a>
-                                                            <a class="dropdown-item waves-light waves-effect" href="#"> Duplicated </a>
+                                                            <a class="dropdown-item waves-light waves-effect" data-key="state" data-value="New" href="javascript: void(0);"> New  </a>
+                                                            <a class="dropdown-item waves-light waves-effect" data-key="state" data-value="Duplicated" href="#"> Duplicated </a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -340,12 +341,12 @@
                                                     <label for="" class="worker-label">Severity</label>
                                                     <div class="dropdown-inverse dropdown open">
                                                         <button class="btn btn-dropdown btn-dropdown-2 dropdown-toggle waves-effect waves-light " type="button" id="dropdown-3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                                            <b>Urgent</b>
+                                                            <b id="severity-label">Urgent</b>
                                                             <!-- <i class="fa fa-angle-down pull-right mt-3p" aria-hidden="true"></i> -->
                                                         </button>
                                                         <div class="dropdown-menu show-menu" aria-labelledby="dropdown-3" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
-                                                            <a class="dropdown-item waves-light waves-effect" href="#"> Urgent  </a>
-                                                            <a class="dropdown-item waves-light waves-effect" href="#"> Normal </a>
+                                                            <a class="dropdown-item waves-light waves-effect" data-key="severity" data-value="Urgent" href="#"> Urgent  </a>
+                                                            <a class="dropdown-item waves-light waves-effect" data-key="severity" data-value="Normal" href="#"> Normal </a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -353,12 +354,12 @@
                                                     <label for="" class="worker-label">Type</label>
                                                     <div class="dropdown-inverse dropdown open">
                                                         <button class="btn btn-dropdown btn-dropdown-2 dropdown-toggle waves-effect waves-light " type="button" id="dropdown-3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                                            <b>Javascript</b>
+                                                            <b id="type-label">Javascript</b>
                                                             <!-- <i class="fa fa-angle-down pull-right mt-3p" aria-hidden="true"></i> -->
                                                         </button>
                                                         <div class="dropdown-menu show-menu" aria-labelledby="dropdown-3" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
-                                                            <a class="dropdown-item waves-light waves-effect" href="#"> Javascript  </a>
-                                                            <a class="dropdown-item waves-light waves-effect" href="#"> Php </a>
+                                                            <a class="dropdown-item waves-light waves-effect" data-key="type" data-value="Javascript" href="#"> Javascript  </a>
+                                                            <a class="dropdown-item waves-light waves-effect" data-key="type" data-value="Php" href="#"> Php </a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -404,13 +405,13 @@
                                     </div>
                                     <div id="editor" class="pl-4">
                                     </div>
-                                    <div class="form-group row mt-3">
+                                    <div class="row mt-3">
                                         <div class="col-12 pt-1">
                                             <h5><b>Visualization</b></h5>
                                         </div>
                                         <div class="col-12" style="height: 200px;"></div>
                                     </div>
-                                    <div class="form-group row mt-3">
+                                    <div class="row mt-3" id="comment">
                                         <div class="col-12 pt-1">
                                             <h5><b>Discussion</b></h5>
                                         </div>
@@ -476,9 +477,7 @@
     <!-- Custom js -->
     <!-- ace editor js -->
     <script src="assets/theme/plugin/ace-builds/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
-    <!-- <script type="text/javascript" src="assets/theme/plugin/ace-editor/build/aui/aui.js"></script> -->
-    <!-- tinymce js -->
-    <script src="assets/theme/plugin/wysiwyg-editor/js/tinymce.min.js"></script>
+    <!-- <script type="text/javascript" src="assets/theme/plugin/ace-editor/build/aui/aui.js"></script> -->    
     <!-- Custom js -->
 
 
@@ -549,6 +548,24 @@ editor.setSession(js)`;
                 document.getElementById('langExt').innerHTML = "java";
             }
         }
+
+        $('.dropdown-item').on('click', function() {
+            let key = $(this).data('key')
+            let value = $(this).data('value')
+            if (key === "state") {
+                $('#state-label').html(value)
+            } else if (key === "severity") {
+                $('#severity-label').html(value)
+            } else if (key === "type") {
+                $('#type-label').html(value)
+            }
+        })
+        $('.comment-wrapper').on('click', function() {
+            var top = $('#comment').offset().top
+            $('html, body').animate({
+                scrollTop: top
+            }, 500);
+        })
     </script>
 
     <!-- page js -->
