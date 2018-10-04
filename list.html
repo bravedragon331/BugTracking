@@ -657,7 +657,7 @@
                     ttt.push(data[i].assign)
                 }
                 if (header_list[5].active) {
-                    ttt.push('<i class="fa fa-circle '+(data[i].state == "Active"?"red":"")+'"></i>'+data[i].state)
+                    ttt.push('<i class="fa fa-circle '+(data[i].state == "Active"?"red":"")+'"></i>&nbsp'+data[i].state)
                 }
                 if (header_list[6].active) {
                     ttt.push(data[i].created)
@@ -734,10 +734,7 @@
             drawTable(tableData)
         })
     </script>
-
     <!-- page js -->
-
-
 </body>
 
 </html>
